@@ -140,17 +140,6 @@ pause;
 
 
 %% ============= Part 6: Dimension Reduction for Faces =================
-%  Project images to the eigen space using the top k eigenvectors 
-%  If you are applying a machine learning algorithm 
-fprintf('\nDimension reduction for face dataset.\n\n');
-K = 100;
-Z = projectData(X_norm, U, K);
-
-fprintf('The projected data Z has a size of: ')
-fprintf('%d ', size(Z));
-
-fprintf('\n\nProgram paused. Press enter to continue.\n');
-pause;
 
 %% ==== Part 7: Visualization of Faces after PCA Dimension Reduction ====
 %  Project images to the eigen space using the top K eigen vectors and 
@@ -158,24 +147,6 @@ pause;
 %  Compare to the original input, which is also displayed
 
 fprintf('\nVisualizing the projected (reduced dimension) faces.\n\n');
-
-K = 100;
-X_rec  = recoverData(Z, U, K);
-
-% Display normalized data
-subplot(1, 2, 1);
-displayData(X_norm(1:100,:));
-title('Original faces');
-axis square;
-
-% Display reconstructed data from only k eigenfaces
-subplot(1, 2, 2);
-displayData(X_rec(1:100,:));
-title('Recovered faces');
-axis square;
-
-fprintf('Program paused. Press enter to continue.\n');
-pause;
 
 
 %% === Part 8(a): Optional (ungraded) Exercise: PCA for Visualization ===
